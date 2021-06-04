@@ -146,7 +146,7 @@ export class HADashboard extends LitElement {
     protected render(): TemplateResult | void {
         return html`
             <style>
-                @media (max-width: ${this._config.sidebar?.styles?.show_at_min_width ?? '1024px'}) {
+                @media (max-width: ${this._config.sidebar?.styles?.['show-at-min-width'] ?? '1024px'}) {
                     .sidebar {
                         display: none !important;
                     }
