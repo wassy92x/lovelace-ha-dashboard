@@ -12,7 +12,7 @@ import {
 } from 'lit-element';
 import {
   HomeAssistant,
-  LovelaceCardEditor, LovelaceCardConfig, getLovelace, LovelaceCard, LovelaceConfig
+  LovelaceCardEditor, LovelaceCardConfig, getLovelace, LovelaceCard
 } from 'custom-card-helpers'; // This is a community maintained npm module with common helper functions/types
 
 import {createCard} from 'card-tools/src/lovelace-element';
