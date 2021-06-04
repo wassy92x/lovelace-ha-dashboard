@@ -8,31 +8,23 @@ import {
     TemplateResult,
     css,
     PropertyValues,
-    internalProperty
+    state
 } from 'lit-element';
-import {
-    StyleInfo,
-    styleMap
-} from 'lit-html/directives/style-map';
+
 import {
     handleAction,
     HomeAssistant,
     LovelaceCard
-} from 'custom-card-helpers'; // This is a community maintained npm module with common helper functions/types
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
+} from 'custom-card-helpers';
 import {createCard} from 'card-tools/src/lovelace-element';
 import {CARD_VERSION} from './const';
-import {localize} from './localize/localize';
 import {IButtonConfig, IDashboardConfig} from './IDashboardConfig';
 
-import './ButtonGroup';
-import './EntitiesButtonGroup';
-import './DigitalClock'
+import {StyleInfo, styleMap} from 'lit-html/directives/style-map';
 
 /* eslint no-console: 0 */
 console.info(
-    `%c  HA-Dashboard \n%c  ${localize('common.version')} ${CARD_VERSION}    `,
+    `%c  HA-Dashboard \n%c  Version ${CARD_VERSION}    `,
     'color: orange; font-weight: bold; background: black',
     'color: white; font-weight: bold; background: dimgray',
 );
@@ -57,11 +49,11 @@ export class HADashboard extends LitElement {
     @property({type: Number}) public index?: number;
     @property({attribute: false}) public cards!: LovelaceCard[];
     @property({attribute: false}) public badges!: HTMLElement[];
-    @internalProperty() protected _sidebarCard?: LovelaceCard;
-    @internalProperty() protected _stickySidebarCard?: LovelaceCard;
-    @internalProperty() protected _sidebarStyle!: string[];
-    @internalProperty() protected _dashboardStyle!: string[];
-    @internalProperty() protected _config!: IDashboardConfig;
+    @state() protected _sidebarCard?: LovelaceCard;
+    @state() protected _stickySidebarCard?: LovelaceCard;
+    @state() protected _sidebarStyle!: StyleInfo;
+    @state() protected _dashboardStyle!: StyleInfo;
+    @state() protected _config!: IDashboardConfig;
 
     public static getStubConfig(): DeepPartial<IDashboardConfig> {
         return {
@@ -70,9 +62,8 @@ export class HADashboard extends LitElement {
     }
 
     public setConfig(config: IDashboardConfig): void {
-        if (!config) {
-            throw new Error(localize('common.invalid_configuration'));
-        }
+        if (!config)
+            throw new Error('Invalid configuration');
 
         this._config = config;
 
@@ -95,7 +86,7 @@ export class HADashboard extends LitElement {
         sidebarCard.classList.add('scroll-panel');
         this._sidebarCard = sidebarCard;
 
-        /*this._dashboardStyle = Object.entries(this._config.styles ?? {})
+        this._dashboardStyle = Object.entries(this._config.styles ?? {})
             .reduce((prev: any, [key, val]: [string, string]) => {
                 prev[`--${key.replace(/_/g, '-')}`] = val;
                 return prev;
@@ -103,15 +94,9 @@ export class HADashboard extends LitElement {
 
         this._sidebarStyle = Object.entries(this._config.sidebar?.styles ?? {})
             .reduce((prev: any, [key, val]: [string, string]) => {
-                prev[`${key.replace(/_/g, '-')}`] = val;
+                prev[`--${key.replace(/_/g, '-')}`] = val;
                 return prev;
-            }, {});*/
-
-        this._dashboardStyle = Object.entries(this._config.styles ?? {})
-            .map(([key, val]) => `--${key.replace(/_/g, '-')}: ${val} !important;`);
-
-        this._sidebarStyle = Object.entries(this._config.sidebar?.styles ?? {})
-            .map(([key, val]) => `--sidebar_${key.replace(/_/g, '-')}: ${val} !important;`);
+            }, {});
     }
 
     protected shouldUpdate(changedProps: PropertyValues): boolean {
@@ -161,11 +146,6 @@ export class HADashboard extends LitElement {
     protected render(): TemplateResult | void {
         return html`
             <style>
-                :host {
-                    ${this._dashboardStyle}
-                    ${this._sidebarStyle}
-                }
-                
                 @media (max-width: ${this._config.sidebar?.styles?.show_at_min_width ?? '1024px'}) {
                     .sidebar {
                         display: none !important;
@@ -177,14 +157,14 @@ export class HADashboard extends LitElement {
                         left: 0;
                         top: 0;
                         z-index: 1000;
-                        background: var(--sidebar_overlay-background, var(--sidebar_background, var(--ha-card-background, var(--card-background-color, transparent)))) !important;
-                        width: var(--sidebar_overlay-width, var(--sidebar_max-width, 500px)) !important;
+                        background: var(--overlay-background, var(--background, var(--ha-card-background, var(--card-background-color, transparent)))) !important;
+                        width: 300px !important;
                     }
                 }
             </style>
 
-            <div class="dashboard">
-                <ha-card class="sidebar">
+            <div class="dashboard" style=${styleMap(this._dashboardStyle)}>
+                <ha-card class="sidebar" style=${styleMap(this._sidebarStyle)}>
                     ${this._stickySidebarCard}
                     ${this._sidebarCard}
                     <div class="sidebar-buttons">
