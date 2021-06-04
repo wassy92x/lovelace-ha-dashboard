@@ -21,6 +21,10 @@ import { CARD_VERSION } from './const';
 import { localize } from './localize/localize';
 import { IDashboardConfig } from './IDashboardConfig';
 
+import './EntitiesButtonGroup';
+import './ButtonGroup';
+import './DigitalClock';
+
 /* eslint no-console: 0 */
 console.info(
   `%c  HA-Dashboard \n%c  ${localize('common.version')} ${CARD_VERSION}    `,
