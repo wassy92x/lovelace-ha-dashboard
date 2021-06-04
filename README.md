@@ -44,6 +44,7 @@ A custom dashboard for Home Assistant with sidebar
 | primary_text_color   | string  | **Optional** | Primary text color                          |                     |
 | ha_card_background   | string  | **Optional** | Background of cards                         |                     |
 | background           | string  | **Optional** | Background of complete sidebar
+| show_at_min_width    | 
 
 #### Dashboard styles
 | Name                 | Type    | Requirement  | Description                                 | Default             |
@@ -64,6 +65,9 @@ A custom dashboard for Home Assistant with sidebar
 | haptic          | string | **Optional** | Haptic feedback for the [Beta IOS App](http://home-assistant.io/ios/beta) _success, warning, failure, light, medium, heavy, selection_ | `none`      |
 | repeat          | number | **Optional** | How often to repeat the `hold_action` in milliseconds.                                                                                 | `non`       |
 
+# Note
+The sidebar is responsive and scales between 300px width and 500px.
+If screen is smaller than 1024px the sidebar will be hidden (for example on the most mobile phones)
 
 # Example
 ```
@@ -98,6 +102,6 @@ views:
         title: Wohnzimmer
 ```
 
-[license-shield]: https://img.shields.io/github/license/custom-cards/boilerplate-card.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/wassy92x/lovelace-ha-dashboard.svg?style=for-the-badge
 [releases-shield]: https://img.shields.io/github/release/wassy92x/lovelace-ha-dashboard.svg?style=for-the-badge
 [releases]: https://github.com/wassy92x/lovelace-ha-dashboard/releases
