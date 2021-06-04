@@ -5,6 +5,8 @@ A custom dashboard for Home Assistant with sidebar
 [![GitHub Release][releases-shield]][releases]
 [![License][license-shield]](LICENSE.md)
 
+![Image of Dashboard](https://github.com/wassy92x/lovelace-ha-dashboard/blob/master/.images/ha-dashboard.png?raw=true)
+
 ## Options
 
 | Name              | Type    | Requirement  | Description                                 | Default             |
