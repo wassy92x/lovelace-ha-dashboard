@@ -98,6 +98,6 @@ views:
         title: Wohnzimmer
 ```
 
-[license-shield]: https://img.shields.io/github/license/custom-cards/boilerplate-card.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/wassy92x/lovelace-ha-dashboard.svg?style=for-the-badge
 [releases-shield]: https://img.shields.io/github/release/wassy92x/lovelace-ha-dashboard.svg?style=for-the-badge
 [releases]: https://github.com/wassy92x/lovelace-ha-dashboard/releases
