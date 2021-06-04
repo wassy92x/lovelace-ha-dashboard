@@ -67,7 +67,7 @@ A custom dashboard for Home Assistant with sidebar
 
 # Note
 The sidebar is responsive and scales between 300px width and 500px.
-If screen is smaller than 1024px
+If screen is smaller than 1024px the sidebar will be hidden (for example on the most mobile phones)
 
 # Example
 ```
