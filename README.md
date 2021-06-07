@@ -19,7 +19,6 @@ A custom dashboard for Home Assistant with sidebar
 | theme             | string  | **Optional** | Theme to use for view                       |                     |
 | background        | string  | **Optional** | Background of view                          |                     |
 | usePanel          | boolean | **Optional** | Give complete space to one card             | false               |
-| styles            | object  | **Optional** | Customize style of dashboard and cards      |                     |
 | sidebar           | object  | **Optional** | Configuration of sidebar                    |                     |
 
 ### Sidebar Options
@@ -28,7 +27,6 @@ A custom dashboard for Home Assistant with sidebar
 | ----------------- | ------- | ------------ | ------------------------------------------- | ------------------- |
 | cards             | object[]| **Optional** | Cards to show                               |                     |
 | stickyCards       | object[]| **Optional** | Cards to show always on top (don't scroll)  |                     |
-| styles            | object  | **Optional** | Customize style of sidebar and cards        |                     |
 | buttons           | object[]| **Optional** | Customize style of dashboard and cards      |                     |
 
 #### Button Options
@@ -38,22 +36,6 @@ A custom dashboard for Home Assistant with sidebar
 | icon              | string  | **Required** | Icon of button                              |                     |
 | label             | string  | **Optional** | Label of button                             |                     |
 | action            | object  | **Optional** | Action to perform on click etc.             |                     |
-
-#### Sidebar styles
-| Name                 | Type    | Requirement  | Description                                 | Default             |
-| -------------------- | ------- | ------------ | ------------------------------------------- | ------------------- |
-| secondary_text_color | string  | **Optional** | Secondary text color                        |                     |
-| primary_text_color   | string  | **Optional** | Primary text color                          |                     |
-| ha_card_background   | string  | **Optional** | Background of cards                         |                     |
-| background           | string  | **Optional** | Background of complete sidebar
-| show_at_min_width    | 
-
-#### Dashboard styles
-| Name                 | Type    | Requirement  | Description                                 | Default             |
-| -------------------- | ------- | ------------ | ------------------------------------------- | ------------------- |
-| secondary_text_color | string  | **Optional** | Secondary text color                        |                     |
-| primary_text_color   | string  | **Optional** | Primary text color                          |                     |
-| ha_card_background   | string  | **Optional** | Background of cards                         |                     |
 
 ## Action Options
 
@@ -66,6 +48,12 @@ A custom dashboard for Home Assistant with sidebar
 | service_data    | object | **Optional** | Service data to include (e.g. entity_id: media_player.bedroom) when action defined as call-service                                     | `none`      |
 | haptic          | string | **Optional** | Haptic feedback for the [Beta IOS App](http://home-assistant.io/ios/beta) _success, warning, failure, light, medium, heavy, selection_ | `none`      |
 | repeat          | number | **Optional** | How often to repeat the `hold_action` in milliseconds.                                                                                 | `non`       |
+
+# Styling
+The dashboard is stylable by some css variables.
+| Name                 | Description                                 | Default                   |
+| -------------------- | ------------------------------------------- | ------------------------- |
+| --sidebar-background | Background of sidebar                       | background color of cards |
 
 # Note
 The sidebar is responsive and scales between 300px width and 500px.
