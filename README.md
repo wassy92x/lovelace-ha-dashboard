@@ -79,12 +79,6 @@ views:
       cards:
         - type: weather-forecast
           entity: weather.frankfurt_openweathermap
-      styles:
-        background: rgba(255, 255, 255, 0.05)
-    styles:
-      secondary_text_color: rgb(200, 200, 200)
-      primary_text_color: white
-      ha_card_background: '#2f2f2f'
     cards:
       - type: entities
         entities:
