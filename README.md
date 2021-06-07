@@ -65,7 +65,7 @@ views:
   - title: Kiosk
     path: kiosk
     background: center / cover no-repeat url("/local/img/background.png") fixed
-    type: custom:ha-dashboard
+    type: 'custom:ha-dashboard'
     badges:
       - entity: person.fabian
     sidebar:
