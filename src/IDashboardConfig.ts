@@ -1,5 +1,4 @@
 import {ActionConfig, LovelaceCardConfig, LovelaceViewConfig} from 'custom-card-helpers';
-import {StyleInfo} from 'lit-html/directives/style-map';
 
 export interface IButtonConfig {
     label?: string;
