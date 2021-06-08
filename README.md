@@ -59,12 +59,14 @@ The dashboard is stylable by some css variables.
 The sidebar is responsive and scales between 300px width and 500px.
 If screen is smaller than 1024px the sidebar will be hidden (for example on the most mobile phones)
 
-# Important
+# Setup
 HA-Dashboard isn't a card.
 It has to be used as a type for one complete page / view.
 If you look at the example, the key `views` has to be on the main level of your lovelace-yaml.
 Unfortunatelly it can't be setup with the help of the ui (the cards inside the dashboard can be setup with the help of the ui).
 Instead you have to setup it over the yaml configuration.
+
+![Setup as view](https://github.com/wassy92x/lovelace-ha-dashboard/blob/master/.images/setup.gif?raw=true)
 
 # Example
 ```
