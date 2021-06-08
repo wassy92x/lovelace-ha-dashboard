@@ -39,15 +39,15 @@ A custom dashboard for Home Assistant with sidebar
 
 ## Action Options
 
-| Name            | Type   | Requirement  | Description                                                                                                                            | Default     |
-| --------------- | ------ | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| action          | string | **Required** | Action to perform (more-info, toggle, call-service, navigate url, none)                                                                | `more-info` |
-| navigation_path | string | **Optional** | Path to navigate to (e.g. /lovelace/0/) when action defined as navigate                                                                | `none`      |
-| url             | string | **Optional** | URL to open on click when action is url. The URL will open in a new tab                                                                | `none`      |
-| service         | string | **Optional** | Service to call (e.g. media_player.media_play_pause) when action defined as call-service                                               | `none`      |
-| service_data    | object | **Optional** | Service data to include (e.g. entity_id: media_player.bedroom) when action defined as call-service                                     | `none`      |
-| haptic          | string | **Optional** | Haptic feedback for the [Beta IOS App](http://home-assistant.io/ios/beta) _success, warning, failure, light, medium, heavy, selection_ | `none`      |
-| repeat          | number | **Optional** | How often to repeat the `hold_action` in milliseconds.                                                                                 | `non`       |
+| Name            | Type   | Requirement  | Description                                                                                                                            | Default |
+| --------------- | ------ | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| action          | string | **Required** | Action to perform (more-info, toggle, call-service, navigate url, none)                                                                |         |
+| navigation_path | string | **Optional** | Path to navigate to (e.g. /lovelace/0/) when action defined as navigate                                                                |         |
+| url             | string | **Optional** | URL to open on click when action is url. The URL will open in a new tab                                                                |         |
+| service         | string | **Optional** | Service to call (e.g. media_player.media_play_pause) when action defined as call-service                                               |         |
+| service_data    | object | **Optional** | Service data to include (e.g. entity_id: media_player.bedroom) when action defined as call-service                                     |         |
+| haptic          | string | **Optional** | Haptic feedback for the [Beta IOS App](http://home-assistant.io/ios/beta) _success, warning, failure, light, medium, heavy, selection_ |         |
+| repeat          | number | **Optional** | How often to repeat the `hold_action` in milliseconds.                                                                                 |         |
 
 # Styling
 The dashboard is stylable by some css variables.

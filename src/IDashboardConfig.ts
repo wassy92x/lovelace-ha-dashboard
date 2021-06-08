@@ -8,14 +8,12 @@ export interface IButtonConfig {
 }
 
 export interface ISidebarConfig {
-    styles?: StyleInfo;
     stickyCards?: LovelaceCardConfig[];
     cards: LovelaceCardConfig[];
     buttons?: IButtonConfig[];
 }
 
 export interface IDashboardConfig extends Omit<LovelaceViewConfig, 'panel'> {
-    styles?: StyleInfo;
     sidebar?: ISidebarConfig;
     usePanel?: boolean;
 }
