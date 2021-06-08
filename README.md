@@ -59,13 +59,20 @@ The dashboard is stylable by some css variables.
 The sidebar is responsive and scales between 300px width and 500px.
 If screen is smaller than 1024px the sidebar will be hidden (for example on the most mobile phones)
 
+# Important
+HA-Dashboard isn't a card.
+It has to be used as a type for one complete page / view.
+If you look at the example, the key `views` has to be on the main level of your lovelace-yaml.
+Unfortunatelly it can't be setup with the help of the ui (the cards inside the dashboard can be setup with the help of the ui).
+Instead you have to setup it over the yaml configuration.
+
 # Example
 ```
 views:
   - title: Kiosk
     path: kiosk
     background: center / cover no-repeat url("/local/img/background.png") fixed
-    type: custom:ha-dashboard
+    type: 'custom:ha-dashboard'
     badges:
       - entity: person.fabian
     sidebar:
@@ -79,12 +86,6 @@ views:
       cards:
         - type: weather-forecast
           entity: weather.frankfurt_openweathermap
-      styles:
-        background: rgba(255, 255, 255, 0.05)
-    styles:
-      secondary_text_color: rgb(200, 200, 200)
-      primary_text_color: white
-      ha_card_background: '#2f2f2f'
     cards:
       - type: entities
         entities:
