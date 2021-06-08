@@ -27,14 +27,6 @@ console.info(
     'color: white; font-weight: bold; background: dimgray',
 );
 
-// This puts your card into the UI card picker dialog
-(window as any).customCards = (window as any).customCards || [];
-(window as any).customCards.push({
-    type: 'ha-dashboard',
-    name: 'Home Assistant Dashboard',
-    description: 'A custom dashboard with sidebar',
-});
-
 type DeepPartial<T> = {
     [P in keyof T]?: DeepPartial<T[P]>;
 };
