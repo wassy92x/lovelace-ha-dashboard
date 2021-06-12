@@ -52,6 +52,7 @@ A custom dashboard for Home Assistant with sidebar
 
 # Styling
 The dashboard is stylable by some css variables.
+
 | Name                 | Description                                 | Default                   |
 | -------------------- | ------------------------------------------- | ------------------------- |
 | --sidebar-background | Background of sidebar                       | background color of cards |
