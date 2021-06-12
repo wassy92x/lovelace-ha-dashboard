@@ -3,6 +3,7 @@
 A custom dashboard for Home Assistant with sidebar
 
 [![GitHub Release][releases-shield]][releases]
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg?style=for-the-badge)](https://github.com/custom-components/hacs)
 [![License][license-shield]](LICENSE.md)
 
 ![Image of Dashboard](https://github.com/wassy92x/lovelace-ha-dashboard/blob/master/.images/ha-dashboard.png?raw=true)
