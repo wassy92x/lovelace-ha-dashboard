@@ -29,6 +29,7 @@ A custom dashboard for Home Assistant with sidebar
 | cards             | object[]| **Optional** | Cards to show                               |                     |
 | stickyCards       | object[]| **Optional** | Cards to show always on top (don't scroll)  |                     |
 | buttons           | object[]| **Optional** | Customize style of dashboard and cards      |                     |
+| screenMinWidth    | number  | **Optional** | Minimum screen width in pixel at which the sidebar will be shown | 1024                |
 
 #### Button Options
 
@@ -53,13 +54,16 @@ A custom dashboard for Home Assistant with sidebar
 # Styling
 The dashboard is stylable by some css variables.
 
-| Name                 | Description                                 | Default                   |
-| -------------------- | ------------------------------------------- | ------------------------- |
-| --sidebar-background | Background of sidebar                       | background color of cards |
+| Name                     | Description                                           | Default                   |
+| ------------------------ | ----------------------------------------------------- | ------------------------- |
+| --sidebar-background     | Background of sidebar                                 | background color of cards |
+| --sidebar-min-width      | Minimum width of sidebar                              | 300px |
+| --sidebar-max-width      | Maximum width of sidebar                              | 500px |
+| --sidebar-relative-width | relative width of sidebar in relation to screen width | 20% |
 
 # Note
-The sidebar is responsive and scales between 300px width and 500px.
-If screen is smaller than 1024px the sidebar will be hidden (for example on the most mobile phones)
+The sidebar is responsive and scales between `--sidebar-min-width` and `--sidebar-max-width` (default: between 300px and 500px).
+If screen is smaller than the set up minimum screen width (default 1024px) the sidebar will be hidden (for example on the most mobile phones)
 
 # Setup
 HA-Dashboard isn't a card.

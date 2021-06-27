@@ -10,7 +10,6 @@ import {
     PropertyValues,
     state
 } from 'lit-element';
-
 import {
     handleAction,
     HomeAssistant,
@@ -120,7 +119,7 @@ export class HADashboard extends LitElement {
     protected render(): TemplateResult | void {
         return html`
             <style>
-                @media (max-width: 1024px) {
+                @media (max-width: ${(this._config?.sidebar?.screenMinWidth ?? 1024) - 1}px) {
                     .sidebar {
                         display: none !important;
                     }
@@ -132,7 +131,7 @@ export class HADashboard extends LitElement {
                         top: 0;
                         z-index: 1000;
                         background: var(--sidebar-overlay-background, var(--sidebar-background, var(--ha-card-background, var(--card-background-color, transparent)))) !important;
-                        width: 300px !important;
+                        width: var(--sidebar-overlay-width, var(--sidebar-min-width, 300px)) !important;
                     }
                 }
             </style>
@@ -188,10 +187,10 @@ export class HADashboard extends LitElement {
             position: relative;
             flex-grow: 1;
             flex-shrink: 1;
-            flex-basis: 20%;
+            flex-basis: var(--sidebar-relative-width, 20%);
             overflow: hidden;
-            min-width: 300px;
-            max-width: 500px;
+            min-width: var(--sidebar-min-width, 300px);
+            max-width: var(--sidebar-max-width, 500px);
             background: var(--ha-card-background, var(--card-background-color, white));
             margin: 7px 0;
             min-height: calc(100% - 2 * 7px);
@@ -241,7 +240,7 @@ export class HADashboard extends LitElement {
           .content-wrapper {
             flex-shrink: 1;
             flex-grow: 1;
-            flex-basis: 80%;
+            flex-basis: calc(100% - var(--sidebar-relative-width, 20%));
             overflow: hidden;
             height: 100%;
           }

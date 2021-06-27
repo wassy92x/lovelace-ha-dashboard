@@ -10,6 +10,7 @@ export interface ISidebarConfig {
     stickyCards?: LovelaceCardConfig[];
     cards: LovelaceCardConfig[];
     buttons?: IButtonConfig[];
+    screenMinWidth?: number;
 }
 
 export interface IDashboardConfig extends Omit<LovelaceViewConfig, 'panel'> {
