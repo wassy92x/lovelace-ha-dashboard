@@ -201,6 +201,8 @@ export class HADashboard extends LitElement {
           .sidebar > * {
             --ha-card-background: transparent;
             --ha-card-box-shadow: none;
+            --ha-card-border-width: 0;
+            --ha-card-border-color: transparent;
             flex-grow: 1;
             flex-shrink: 1;
           }
