@@ -1,20 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-    LitElement,
-    html,
-    customElement,
-    property,
-    CSSResult,
-    TemplateResult,
-    css,
-    PropertyValues,
-    state
-} from 'lit-element';
-import {
-    handleAction,
-    HomeAssistant,
-    LovelaceCard
-} from 'custom-card-helpers';
+import {css, CSSResult, html, LitElement, PropertyValues, TemplateResult,} from 'lit';
+import {customElement, property, state} from 'lit/decorators';
+import {handleAction, HomeAssistant, LovelaceCard} from 'custom-card-helpers';
 import {createCard} from 'card-tools/src/lovelace-element';
 import {CARD_VERSION} from './const';
 import {IButtonConfig, IDashboardConfig} from './IDashboardConfig';
@@ -144,10 +131,10 @@ export class HADashboard extends LitElement {
                         ${this._config.sidebar?.buttons?.map((bConfig: IButtonConfig) => {
                             return html`
                                 <div
-                                    @click="${(): void =>
-                                        // eslint-disable-next-line @typescript-eslint/camelcase
-                                        handleAction(this, this.hass, {tap_action: bConfig.action}, 'tap')
-                                    }"
+                                        @click="${(): void =>
+                                                // eslint-disable-next-line @typescript-eslint/camelcase
+                                                handleAction(this, this.hass, {tap_action: bConfig.action}, 'tap')
+                                        }"
                                 >
                                     <ha-icon .icon=${bConfig.icon}></ha-icon>
                                 </div>`
@@ -155,18 +142,20 @@ export class HADashboard extends LitElement {
                     </div>
                 </ha-card>
                 ${!this._config.usePanel ?
-                    html`<hui-masonry-view
-                                class="scroll-panel content-wrapper"
-                                .hass=${this.hass}
-                                .narrow=${this.narrow}
-                                .lovelace=${this.lovelace}
-                                .cards=${this.cards}
-                                .badges=${this.badges}
-                                .index=${this.index}>
-                        </hui-masonry-view>` :
-                    html`<div class="content-wrapper">
-                            ${this.cards[0]}
-                        </div>`
+                        html`
+                            <hui-masonry-view
+                                    class="scroll-panel content-wrapper"
+                                    .hass=${this.hass}
+                                    .narrow=${this.narrow}
+                                    .lovelace=${this.lovelace}
+                                    .cards=${this.cards}
+                                    .badges=${this.badges}
+                                    .index=${this.index}>
+                            </hui-masonry-view>` :
+                        html`
+                            <div class="content-wrapper">
+                                ${this.cards[0]}
+                            </div>`
                 }
             </div>
         `;
